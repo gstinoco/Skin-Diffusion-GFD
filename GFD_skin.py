@@ -254,7 +254,7 @@ def difusion_skin_jit(m, n, t, dt, nu, u_init, Gamma):
     # Return final solution (u_prev contains the last computed solution)
     return u_prev                                                                   # Final concentration field u(x,y,T)
 
-def difusion_skin(m, n, T, nu, u_init, Gamma):
+def difusion_skin(m, n, t, dt, nu, u_init, Gamma):
     '''
     Vectorized implementation of the 2D skin diffusion simulation using optimized tensor operations.
     
@@ -322,8 +322,6 @@ def difusion_skin(m, n, T, nu, u_init, Gamma):
     - Suitable for integration with optimization algorithms
     '''
     # Initialize variables with float64 precision
-    t      = len(T)                                                                 # Number of time steps
-    dt     = T[1] - T[0]                                                            # Time step size (float64)
     u_prev = np.zeros([m, n])                                                       # Previous state (float64)
     u_curr = np.zeros([m, n])                                                       # Current state (float64)
     Gamma  = Gamma * nu * dt                                                        # Gammas with scientific precision (float64)
@@ -677,16 +675,16 @@ def main():
     '''
     
     # Load mesh data
-    datos  = scipy.io.loadmat('region/skin41.mat')
+    datos  = scipy.io.loadmat('region/skin101.mat')
     x, y   = datos["x"], datos["y"]                                                 # Mesh coordinates
     m, n  = x.shape                                                                 # Mesh dimensions
-    t      = 3600                                                                   # Total simulation time (in seconds)
+    t      = 1000                                                                   # Total simulation time (in seconds)
     T      = np.linspace(0, 3600, t)                                                # Time discretization
     dt     = T[1] - T[0]                                                            # Time step
 
     # Define problem parameters (these are what will vary in the problem)
     nu     = 1e-6                                                                   # Diffusion coefficient
-    u_init = 24                                                                    # Concentration at the boundary
+    u_init = 100                                                                    # Concentration at the boundary
 
     # Verify numerical stability (CFL condition)
     dx_min = np.min(np.sqrt((x[1:, :] - x[:-1, :])**2 + (y[1:, :] - y[:-1, :])**2)) # Minimum dx size
@@ -704,11 +702,14 @@ def main():
 
     # Solve the diffusion equation using optimized Numba JIT
     u_final = difusion_skin_jit(m, n, t, dt, nu, u_init, Gamma)
+    u_fina2 = difusion_skin(m, n, t, dt, nu, u_init, Gamma)
     
     # Generate visualization
     graph(x, y, u_final, 'skin.png')
+    graph(x, y, u_fina2, 'skin2.png')
     
     print(f"Simulation completed with {t} time steps")
+    print(f"Courant number was {alpha}")
 
 if __name__ == "__main__":
     main()
