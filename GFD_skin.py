@@ -598,7 +598,7 @@ def graph(x, y, u_final, output_file):
     ax.axis('off')
     
     # Save image with high resolution and without margins
-    plt.savefig(output_file, dpi=300, bbox_inches='tight', pad_inches=0, facecolor='white')
+    plt.savefig(output_file, dpi=150, bbox_inches='tight', pad_inches=0, facecolor='white')
     plt.close()
 
 

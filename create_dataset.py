@@ -148,7 +148,7 @@ logger = logging.getLogger(__name__)
 DEFAULT_REGION = 'skin61'
 DEFAULT_TIME_STEPS = 500
 DEFAULT_MAX_WORKERS = None
-STABILITY_THRESHOLD = 0.5
+STABILITY_THRESHOLD = 0.25
 COMPRESSION_LEVEL = 6
 
 # ============================================================================
@@ -669,7 +669,7 @@ class DatasetGenerator:
             
             # Process results with progress bar
             with tqdm(total=len(simulation_params), desc="🔄 Generating dataset", 
-                     unit="sim", ncols=100) as pbar:
+                     unit="sim", ncols=200) as pbar:
                 
                 for future in as_completed(future_to_params):
                     result = future.result()
@@ -1055,7 +1055,7 @@ def get_time_steps():
     print("\n⏱️  Time configuration:")
     while True:
         try:
-            t_steps = int(input("  • Number of time steps (e.g., 400): "))
+            t_steps = int(input(f"  • Number of time steps (e.g., {DEFAULT_TIME_STEPS}): "))
             if t_steps <= 0:
                 print("  ❌ Error: Number of time steps must be positive")
                 continue
