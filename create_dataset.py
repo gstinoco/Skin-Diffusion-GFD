@@ -148,7 +148,7 @@ logger = logging.getLogger(__name__)
 DEFAULT_REGION = 'skin61'
 DEFAULT_TIME_STEPS = 500
 DEFAULT_MAX_WORKERS = None
-STABILITY_THRESHOLD = 0.25
+STABILITY_THRESHOLD = 0.05
 COMPRESSION_LEVEL = 6
 
 # ============================================================================

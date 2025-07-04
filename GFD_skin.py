@@ -675,21 +675,21 @@ def main():
     '''
     
     # Load mesh data
-    datos  = scipy.io.loadmat('region/skin101.mat')
+    datos  = scipy.io.loadmat('region/skin256.mat')
     x, y   = datos["x"], datos["y"]                                                 # Mesh coordinates
     m, n  = x.shape                                                                 # Mesh dimensions
-    t      = 1000                                                                   # Total simulation time (in seconds)
+    t      = 500                                                                   # Total simulation time (in seconds)
     T      = np.linspace(0, 3600, t)                                                # Time discretization
     dt     = T[1] - T[0]                                                            # Time step
 
     # Define problem parameters (these are what will vary in the problem)
-    nu     = 1e-6                                                                   # Diffusion coefficient
+    nu     = 9e-6                                                                   # Diffusion coefficient
     u_init = 100                                                                    # Concentration at the boundary
 
     # Verify numerical stability (CFL condition)
     dx_min = np.min(np.sqrt((x[1:, :] - x[:-1, :])**2 + (y[1:, :] - y[:-1, :])**2)) # Minimum dx size
     alpha = nu*dt/dx_min**2                                                         # Courant number
-    while alpha > 0.5:                                                              # If the Courant number is too large
+    while alpha > 0.05:                                                             # If the Courant number is too large
         print(f'Courant number is too large. C = {alpha}')
         t      = int(t * 1.1)
         T      = np.linspace(0, 3600, t)                                            # Time discretization
