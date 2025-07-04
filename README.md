@@ -44,11 +44,94 @@ This repository presents a **state-of-the-art computational framework** for simu
 ### Mathematical Model
 
 Solves the **2D transient diffusion equation**:
+<<<<<<< HEAD
 
 ```
 ∂u/∂t = ν∇²u
 ```
 
+Where:
+- `u(x,y,t)`: Concentration field [mol/m³]
+- `ν`: Diffusion coefficient [m²/s]
+- `∇²`: Laplacian operator (GFD approximation)
+
+### Numerical Method
+
+- **Spatial Discretization**: Generalized Finite Differences (9-point stencil)
+- **Time Integration**: Explicit Euler scheme with CFL stability control
+- **Boundary Conditions**: Mixed Dirichlet/Neumann with physiological relevance
+- **Mesh Support**: Structured and unstructured grids
+- **Accuracy**: Second-order spatial, first-order temporal
+
+### Performance Benchmarks
+
+| Mesh Size | Nodes | Time Steps | Execution Time | Memory Usage |
+|-----------|-------|------------|----------------|---------------|
+| Small | 50×50 | 1,000 | ~0.1s | ~50 MB |
+| Medium | 100×100 | 5,000 | ~2.5s | ~150 MB |
+| Large | 200×200 | 10,000 | ~45s | ~800 MB |
+
+*Benchmarks on Intel i7-8700K @ 3.7GHz with 32GB RAM*
+
+## :open_file_folder: Project Architecture
+
+### Core Components
+
+```
+📦 Skin-Diffusion-GFD/
+├── :dna: GFD_skin.py             # Core diffusion simulator engine
+│   ├── difusion_skin_jit()       # JIT-optimized solver (high performance)
+│   ├── difusion_skin()           # Vectorized solver (memory efficient)
+│   ├── Gammas()                  # GFD coefficient calculator
+│   ├── graph_skin()              # Scientific visualization
+│   └── main()                    # Complete workflow orchestrator
+│
+├── :factory: create_dataset.py   # Automated dataset generation framework
+│   ├── DatasetGenerator          # Main dataset creation class
+│   ├── Parallel processing       # Multi-core parameter sweeps
+│   ├── Progress monitoring       # Real-time generation tracking
+│   └── Data organization         # Structured output management
+│
+├── 📋 requirements.txt           # Python dependencies specification
+├── 📄 LICENSE                    # MIT License terms
+├── 📖 README.md                  # This comprehensive documentation
+│
+├── :file_folder: region/         # Computational mesh library
+│   ├── skin21.mat                # Small (21×21 nodes)
+│   ├── skin41.mat                # Medium mesh (41×41 nodes)
+│   ├── skin61.mat                # Medium mesh (61×61 nodes)
+│   ├── ...                       # Other mesh sizes.
+│   └── custom_meshes/            # User-defined geometries
+│
+└── :bar_chart: Dataset/          # Generated simulation datasets
+    ├── ci_001/                   # Initial concentration: 1 unit
+    │   ├── nu_1.00e-06.png       # Diffusion coeff: 1×10⁻⁶ m²/s
+    │   ├── nu_2.00e-06.png       # Diffusion coeff: 2×10⁻⁶ m²/s
+    │   └── ...                   # Parameter sweep results
+    ├── ci_002/                   # Initial concentration: 2 units
+    └── ...                       # Additional concentration scenarios
+=======
+
+```
+∂u/∂t = ν∇²u
+>>>>>>> 03c26aa803f60b5614997c839dcee475acb4e56c
+```
+---
+
+## :package: Installation & Setup
+
+<<<<<<< HEAD
+### :computer: System Requirements
+
+| Component | Minimum | Recommended |
+|-----------|---------|-------------|
+| **Python** | 3.7+ | 3.9+ |
+| **RAM** | 4 GB | 16 GB+ |
+| **CPU** | 2 cores | 8+ cores |
+| **Storage** | 1 GB | 10 GB+ (for datasets) |
+| **OS** | Windows/Linux/macOS | Linux (optimal performance) |
+
+=======
 Where:
 - `u(x,y,t)`: Concentration field [mol/m³]
 - `ν`: Diffusion coefficient [m²/s]
@@ -124,6 +207,7 @@ Where:
 | **Storage** | 1 GB | 10 GB+ (for datasets) |
 | **OS** | Windows/Linux/macOS | Linux (optimal performance) |
 
+>>>>>>> 03c26aa803f60b5614997c839dcee475acb4e56c
 ### :package: Dependencies
 
 ```python
