@@ -342,6 +342,10 @@ class DatasetGenerator:
             # Run the diffusion simulation
             u_final = difusion_skin_jit(self.m, self.n, t, dt, nu, u_init, self.Gamma.copy())
             
+            # Validate simulation results for numerical stability
+            if np.any(np.isnan(u_final)) or np.any(np.isinf(u_final)):
+                raise ValueError("Simulation produced NaN or Inf values - numerical instability detected")
+            
             # Save simulation result as image
             image_path = self._save_simulation_image(u_final, nu, u_init)
             
@@ -669,7 +673,7 @@ class DatasetGenerator:
             
             # Process results with progress bar
             with tqdm(total=len(simulation_params), desc="🔄 Generating dataset", 
-                     unit="sim", ncols=200) as pbar:
+                     unit="sim", ncols=150) as pbar:
                 
                 for future in as_completed(future_to_params):
                     result = future.result()
