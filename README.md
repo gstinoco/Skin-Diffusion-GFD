@@ -9,7 +9,7 @@
 *Advanced numerical simulation using Generalized Finite Differences for biomedical applications*
 
 ### :link: Quick Links
-[![:rocket: Quick Start](https://img.shields.io/badge/:rocket:-Quick%20Start-green)](#rocket-quick-start) [![:chart_with_upwards_trend: Performance](https://img.shields.io/badge/:chart_with_upwards_trend:-Performance-orange)](#chart_with_upwards_trend-performance-benchmarks) [![:movie_camera: Visualizations](https://img.shields.io/badge/:movie_camera:-Visualizations-purple)](#movie_camera-visualizations) [![:busts_in_silhouette: Team](https://img.shields.io/badge/:busts_in_silhouette:-Research%20Team-blue)](#scientist-research-team)
+[![🚀 Quick Start](https://img.shields.io/badge/🚀-Quick%20Start-green)](#rocket-quick-start) [![📊 Performance](https://img.shields.io/badge/📊-Performance-orange)](#chart_with_upwards_trend-performance-benchmarks) [![🎬 Visualizations](https://img.shields.io/badge/🎬-Visualizations-purple)](#movie_camera-visualizations) [![👥 Team](https://img.shields.io/badge/👥-Research%20Team-blue)](#scientist-research-team)
 
 </div>
 
