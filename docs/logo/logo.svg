@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="420" viewBox="0 0 1400 420" fill="none" role="img" aria-label="Skin Diffusion Simulator with GFD logo">
+  <defs>
+    <linearGradient id="bg" x1="86" y1="62" x2="334" y2="358" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0B1B3A"/>
+      <stop offset="0.55" stop-color="#0A2E5E"/>
+      <stop offset="1" stop-color="#063A6B"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="124" y1="105" x2="296" y2="315" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#35E3C8"/>
+      <stop offset="0.55" stop-color="#2DB7FF"/>
+      <stop offset="1" stop-color="#7C5CFF"/>
+    </linearGradient>
+    <linearGradient id="skin" x1="120" y1="180" x2="300" y2="300" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F6C6B5"/>
+      <stop offset="0.55" stop-color="#EFA48E"/>
+      <stop offset="1" stop-color="#D98272"/>
+    </linearGradient>
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#06122A" flood-opacity="0.35"/>
+    </filter>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.20  0 0 0 0 0.92  0 0 0 0 0.80  0 0 0 0.65 0" result="tint"/>
+      <feMerge>
+        <feMergeNode in="tint"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <clipPath id="iconClip">
+      <rect x="60" y="60" width="300" height="300" rx="64"/>
+    </clipPath>
+    <pattern id="meshDots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="5" cy="5" r="1.6" fill="#CDEBFF" opacity="0.22"/>
+      <circle cx="21" cy="17" r="1.6" fill="#CDEBFF" opacity="0.18"/>
+    </pattern>
+  </defs>
+
+  <g filter="url(#softShadow)">
+    <rect x="60" y="60" width="300" height="300" rx="64" fill="url(#bg)"/>
+  </g>
+
+  <g clip-path="url(#iconClip)">
+    <rect x="60" y="60" width="300" height="300" fill="url(#bg)"/>
+    <rect x="60" y="60" width="300" height="300" fill="url(#meshDots)"/>
+
+    <path d="M98 146 C150 126, 190 122, 244 134 C288 144, 318 166, 346 190 L346 246 C312 224, 280 212, 242 206 C196 198, 154 202, 98 224 Z" fill="url(#skin)" opacity="0.98"/>
+    <path d="M98 206 C150 182, 190 176, 244 188 C288 198, 318 220, 346 244 L346 300 C314 280, 282 268, 244 262 C198 254, 156 258, 98 280 Z" fill="#F3B79F" opacity="0.62"/>
+    <path d="M98 266 C152 242, 194 238, 246 248 C288 256, 318 276, 346 300 L346 360 L98 360 Z" fill="#E89B84" opacity="0.42"/>
+
+    <path d="M116 182 C166 156, 208 148, 254 158 C292 166, 320 184, 348 206" stroke="#FFEFEA" stroke-opacity="0.55" stroke-width="2.2"/>
+    <path d="M116 244 C168 218, 210 210, 256 220 C292 228, 320 246, 348 268" stroke="#FFEFEA" stroke-opacity="0.38" stroke-width="2.2"/>
+
+    <g filter="url(#glow)">
+      <path d="M210 118 C240 150, 254 172, 254 198 C254 228, 234 248, 210 248 C186 248, 166 228, 166 198 C166 172, 180 150, 210 118 Z" fill="url(#accent)"/>
+      <circle cx="210" cy="206" r="4.8" fill="#F6FFFE" opacity="0.92"/>
+      <circle cx="226" cy="190" r="3.6" fill="#F6FFFE" opacity="0.78"/>
+      <circle cx="194" cy="190" r="3.6" fill="#F6FFFE" opacity="0.78"/>
+      <path d="M210 252 C210 286, 210 302, 210 324" stroke="#74F3DA" stroke-width="3.4" stroke-linecap="round" opacity="0.85"/>
+      <path d="M210 334 L202 322 M210 334 L218 322" stroke="#74F3DA" stroke-width="3.4" stroke-linecap="round" opacity="0.85"/>
+    </g>
+
+    <path d="M120 322 C154 304, 182 298, 214 302 C246 306, 274 322, 306 348" stroke="#2DB7FF" stroke-opacity="0.28" stroke-width="2.2"/>
+    <path d="M120 302 C160 280, 196 272, 232 278 C268 284, 296 302, 332 330" stroke="#35E3C8" stroke-opacity="0.22" stroke-width="2.2"/>
+  </g>
+
+  <g transform="translate(412 94)">
+    <text x="0" y="88" fill="#0B1B3A" font-size="64" font-weight="700" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji'">
+      Skin Diffusion Simulator
+    </text>
+    <text x="0" y="142" fill="#1A3A6B" font-size="28" font-weight="600" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial">
+      Generalized Finite Differences (GFD)
+    </text>
+
+    <g transform="translate(0 186)">
+      <rect x="0" y="0" width="280" height="44" rx="22" fill="#0B1B3A" opacity="0.08"/>
+      <path d="M20 22 C44 10, 64 8, 92 14 C116 20, 134 32, 154 46" stroke="#0B1B3A" stroke-opacity="0.38" stroke-width="2.2" fill="none"/>
+      <circle cx="54" cy="18" r="3.2" fill="#2DB7FF"/>
+      <circle cx="82" cy="14" r="3.2" fill="#35E3C8"/>
+      <circle cx="110" cy="20" r="3.2" fill="#7C5CFF"/>
+      <text x="176" y="28" fill="#0B1B3A" font-size="16" font-weight="650" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial">
+        HPC • JIT • Mesh
+      </text>
+    </g>
+  </g>
+</svg>

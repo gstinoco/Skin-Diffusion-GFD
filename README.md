@@ -2,14 +2,16 @@
 
 <div align="center">
 
-[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/) [![NumPy](https://img.shields.io/badge/NumPy-1.19+-orange.svg)](https://numpy.org/) [![SciPy](https://img.shields.io/badge/SciPy-1.7+-green.svg)](https://scipy.org/) [![Matplotlib](https://img.shields.io/badge/Matplotlib-3.3+-red.svg)](https://matplotlib.org/) [![Numba](https://img.shields.io/badge/Numba-0.54+-purple.svg)](https://numba.pydata.org/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+<img src="docs/logo/logo.svg" alt="Skin Diffusion Simulator with GFD logo" width="680" style="margin: 20px 0;">
+
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-black.svg)](https://github.com/gstinoco/Skin-Diffusion-GFD) [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/) [![NumPy](https://img.shields.io/badge/NumPy-1.20+-orange.svg)](https://numpy.org/) [![SciPy](https://img.shields.io/badge/SciPy-1.7+-green.svg)](https://scipy.org/) [![Matplotlib](https://img.shields.io/badge/Matplotlib-3.4+-red.svg)](https://matplotlib.org/) [![Numba](https://img.shields.io/badge/Numba-0.54+-purple.svg)](https://numba.pydata.org/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 **High-Performance Computational Framework for Skin Diffusion Modeling**
 
 *Advanced numerical simulation using Generalized Finite Differences for biomedical applications*
 
 ### :link: Quick Links
-[![🚀 Quick Start](https://img.shields.io/badge/🚀-Quick%20Start-green)](#rocket-quick-start) [![📊 Performance](https://img.shields.io/badge/📊-Performance-orange)](#chart_with_upwards_trend-performance-benchmarks) [![🎬 Visualizations](https://img.shields.io/badge/🎬-Visualizations-purple)](#movie_camera-visualizations) [![👥 Team](https://img.shields.io/badge/👥-Research%20Team-blue)](#scientist-research-team)
+[![🚀 Quick Start](https://img.shields.io/badge/🚀-Quick%20Start-green)](#rocket-quick-start) [![📦 Install](https://img.shields.io/badge/📦-Install-blue)](#package-installation--setup) [![🧮 Model](https://img.shields.io/badge/🧮-Model-purple)](#books-mathematical-model) [![🎬 Visualizations](https://img.shields.io/badge/🎬-Visualizations-purple)](#movie_camera-visualizations) [![👥 Team](https://img.shields.io/badge/👥-Research%20Team-blue)](#scientist-research-team)
 
 </div>
 
@@ -26,12 +28,12 @@
 - [Dataset Structure](#file_cabinet-dataset-structure)
 - [Performance Benchmarks](#chart_with_upwards_trend-performance-benchmarks)
 - [Research Team](#scientist-research-team)
-- [Citation & License](#memo-citation)
+- [Citation & License](#memo-citation--license)
 - [Contact](#email-contact--support)
 
 ---
 
-## :star: Overview
+## :star2: Overview
 
 This repository presents a **state-of-the-art computational framework** for modeling substance diffusion in biological tissues using the Generalized Finite Differences (GFD) method. The simulator provides high-performance solutions for studying drug delivery, cosmetic penetration, and biomedical transport phenomena in skin layers.
 
@@ -98,9 +100,9 @@ This repository presents a **state-of-the-art computational framework** for mode
 
 ```python
 # Core scientific computing
-numpy >= 1.19.0           # Numerical computations
+numpy >= 1.20.0           # Numerical computations
 scipy >= 1.7.0            # Scientific algorithms
-matplotlib >= 3.3.0       # Scientific plotting
+matplotlib >= 3.4.0       # Scientific plotting
 numba >= 0.54.0           # JIT compilation
 tqdm >= 4.62.0            # Progress bars
 ```
@@ -110,7 +112,7 @@ tqdm >= 4.62.0            # Progress bars
 ```bash
 # Method 1: Direct installation
 git clone https://github.com/gstinoco/Skin-Diffusion-GFD.git
-cd GFD-Skin-ML
+cd Skin-Diffusion-GFD
 pip install -r requirements.txt
 
 # Method 2: Virtual environment (recommended)
@@ -198,7 +200,7 @@ region/skin_base.png      # Base for the geometries
 
 ---
 
-## :file_folder: Project Architecture
+## :open_file_folder: Project Architecture
 
 ### Core Components
 
@@ -353,13 +355,17 @@ Parallel Efficiency: 85-90%   # Multi-core performance
 
 ---
 
-## :man_scientist: Research Team
+## :scientist: Research Team
 
 ### :busts_in_silhouette: Main Researchers
 
 <table>
 <tr>
-<td width="33%">
+<td width="25%">
+
+<div align="center">
+<img src="docs/team/gtinoco.webp" alt="Dr. Gerardo Tinoco Guerrero" width="130">
+</div>
 
 **Dr. Gerardo Tinoco Guerrero** :mexico:
 - :office: [SIIIA MATH: Soluciones en ingeniería](http://www.siiia.com.mx)
@@ -369,7 +375,11 @@ Parallel Efficiency: 85-90%   # Multi-core performance
 - :globe_with_meridians: [ORCID](https://orcid.org/0000-0003-3119-770X)
 
 </td>
-<td width="33%">
+<td width="25%">
+
+<div align="center">
+<img src="docs/team/dmota.webp" alt="Dr. Francisco Javier Domínguez Mota" width="130">
+</div>
 
 **Dr. Francisco Javier Domínguez Mota** :mexico:
 - :office: [SIIIA MATH: Soluciones en ingeniería](http://www.siiia.com.mx)
@@ -379,7 +389,11 @@ Parallel Efficiency: 85-90%   # Multi-core performance
 - :globe_with_meridians: [ORCID](https://orcid.org/0000-0001-6837-172X)
 
 </td>
-<td width="33%">
+<td width="25%">
+
+<div align="center">
+<img src="docs/team/jagt.webp" alt="Dr. José Alberto Guzmán Torres" width="130">
+</div>
 
 **Dr. José Alberto Guzmán Torres** :mexico:
 - :office: [SIIIA MATH: Soluciones en ingeniería](http://www.siiia.com.mx)
@@ -389,18 +403,22 @@ Parallel Efficiency: 85-90%   # Multi-core performance
 - :globe_with_meridians: [ORCID](https://orcid.org/0000-0002-9309-9390)
 
 </td>
+<td width="25%">
+
+<div align="center">
+<img src="docs/team/harias.webp" alt="Dr. Heriberto Árias Rojas" width="130">
+</div>
+
+**Dr. Heriberto Árias Rojas** :mexico:
+- :office: [SIIIA MATH: Soluciones en ingeniería](http://www.siiia.com.mx)
+- :classical_building: [Universidad Michoacana de San Nicolás de Hidalgo](http://www.umich.mx)
+- :microscope: Engineering applications
+- :email: heriberto.arias@umich.mx
+- :globe_with_meridians: [ORCID](https://orcid.org/0000-0002-7641-8310)
+
+</td>
 </tr>
 </table>
-
-### :mortar_board: Graduate Students
-
-**Ángel Emeterio Calvillo Vázquez** :mexico:
-- :dart: Graduate Student
-- :classical_building: Universidad Michoacana de San Nicolás de Hidalgo
-- :microscope: Computational Biology & Numerical Simulation
-- :email: 1025501x@umich.mx
-- :globe_with_meridians: [ORCID](https://orcid.org/0009-0005-5497-5166)
-- :briefcase: Research Focus: Skin diffusion modeling and machine learning applications
 
 ---
 
@@ -419,7 +437,7 @@ Parallel Efficiency: 85-90%   # Multi-core performance
 
 ---
 
-## :memo: Citation
+## :memo: Citation & License
 
 If you use this software in your research, please cite:
 
