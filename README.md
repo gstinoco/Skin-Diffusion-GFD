@@ -448,7 +448,7 @@ If you use this software in your research, please cite:
   author={Tinoco-Guerrero, Gerardo and 
           Domínguez-Mota, Francisco Javier and 
           Guzmán-Torres, José Alberto and
-          Calvillo-Vázquez, Ángel Emeterio},
+          Arias-Rojas, Heriberto},
   year={2025},
   institution={Universidad Michoacana de San Nicolás de Hidalgo},
   organization={SIIIA MATH: Soluciones en ingeniería},
@@ -472,7 +472,7 @@ This project is licensed under the **MIT License** - see the full license text b
 MIT License
 
 Copyright (c) 2025 Gerardo Tinoco-Guerrero, Francisco Javier Domínguez-Mota, 
-                   José Alberto Guzmán-Torres, Ángel Emeterio Calvillo-Vázquez
+                   José Alberto Guzmán-Torres, Heriberto Árias Rojas
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
