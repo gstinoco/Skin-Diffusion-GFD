@@ -360,64 +360,84 @@ Parallel Efficiency: 85-90%   # Multi-core performance
 ### :busts_in_silhouette: Main Researchers
 
 <table>
-<tr>
-<td width="25%">
-
-<div align="center">
-<img src="docs/team/gtinoco.webp" alt="Dr. Gerardo Tinoco Guerrero" width="130">
-</div>
-
-**Dr. Gerardo Tinoco Guerrero** :mexico:
-- :office: [SIIIA MATH: Soluciones en ingeniería](http://www.siiia.com.mx)
-- :classical_building: [Universidad Michoacana de San Nicolás de Hidalgo](http://www.umich.mx)
-- :microscope: Numerical Methods & Computational Mathematics
-- :email: gerardo.tinoco@umich.mx
-- :globe_with_meridians: [ORCID](https://orcid.org/0000-0003-3119-770X)
-
-</td>
-<td width="25%">
-
-<div align="center">
-<img src="docs/team/dmota.webp" alt="Dr. Francisco Javier Domínguez Mota" width="130">
-</div>
-
-**Dr. Francisco Javier Domínguez Mota** :mexico:
-- :office: [SIIIA MATH: Soluciones en ingeniería](http://www.siiia.com.mx)
-- :classical_building: [Universidad Michoacana de San Nicolás de Hidalgo](http://www.umich.mx)
-- :microscope: Applied Mathematics & Finite Difference Methods
-- :email: francisco.mota@umich.mx
-- :globe_with_meridians: [ORCID](https://orcid.org/0000-0001-6837-172X)
-
-</td>
-<td width="25%">
-
-<div align="center">
-<img src="docs/team/jagt.webp" alt="Dr. José Alberto Guzmán Torres" width="130">
-</div>
-
-**Dr. José Alberto Guzmán Torres** :mexico:
-- :office: [SIIIA MATH: Soluciones en ingeniería](http://www.siiia.com.mx)
-- :classical_building: [Universidad Michoacana de San Nicolás de Hidalgo](http://www.umich.mx)
-- :microscope: Engineering applications and Artificial Intelligence
-- :email: jose.alberto.guzman@umich.mx
-- :globe_with_meridians: [ORCID](https://orcid.org/0000-0002-9309-9390)
-
-</td>
-<td width="25%">
-
-<div align="center">
-<img src="docs/team/harias.webp" alt="Dr. Heriberto Árias Rojas" width="130">
-</div>
-
-**Dr. Heriberto Árias Rojas** :mexico:
-- :office: [SIIIA MATH: Soluciones en ingeniería](http://www.siiia.com.mx)
-- :classical_building: [Universidad Michoacana de San Nicolás de Hidalgo](http://www.umich.mx)
-- :microscope: Engineering applications
-- :email: heriberto.arias@umich.mx
-- :globe_with_meridians: [ORCID](https://orcid.org/0000-0002-7641-8310)
-
-</td>
-</tr>
+  <thead>
+    <tr>
+      <th align="center" width="120">Photo</th>
+      <th align="left">Researcher</th>
+      <th align="left">Affiliation</th>
+      <th align="left">Contact</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center" width="120">
+        <img src="docs/team/gtinoco.webp" alt="Dr. Gerardo Tinoco Guerrero" width="96">
+      </td>
+      <td>
+        <b>Dr. Gerardo Tinoco Guerrero</b> :mexico:<br/>
+        <sub>Numerical Methods &amp; Computational Mathematics</sub>
+      </td>
+      <td>
+        <a href="http://www.siiia.com.mx">SIIIA MATH: Soluciones en ingeniería</a><br/>
+        <a href="http://www.umich.mx">Universidad Michoacana de San Nicolás de Hidalgo</a>
+      </td>
+      <td>
+        <a href="mailto:gerardo.tinoco@umich.mx">gerardo.tinoco@umich.mx</a><br/>
+        <a href="https://orcid.org/0000-0003-3119-770X">ORCID</a>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" width="120">
+        <img src="docs/team/dmota.webp" alt="Dr. Francisco Javier Domínguez Mota" width="96">
+      </td>
+      <td>
+        <b>Dr. Francisco Javier Domínguez Mota</b> :mexico:<br/>
+        <sub>Applied Mathematics &amp; Finite Difference Methods</sub>
+      </td>
+      <td>
+        <a href="http://www.siiia.com.mx">SIIIA MATH: Soluciones en ingeniería</a><br/>
+        <a href="http://www.umich.mx">Universidad Michoacana de San Nicolás de Hidalgo</a>
+      </td>
+      <td>
+        <a href="mailto:francisco.mota@umich.mx">francisco.mota@umich.mx</a><br/>
+        <a href="https://orcid.org/0000-0001-6837-172X">ORCID</a>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" width="120">
+        <img src="docs/team/jagt.webp" alt="Dr. José Alberto Guzmán Torres" width="96">
+      </td>
+      <td>
+        <b>Dr. José Alberto Guzmán Torres</b> :mexico:<br/>
+        <sub>Engineering applications and Artificial Intelligence</sub>
+      </td>
+      <td>
+        <a href="http://www.siiia.com.mx">SIIIA MATH: Soluciones en ingeniería</a><br/>
+        <a href="http://www.umich.mx">Universidad Michoacana de San Nicolás de Hidalgo</a>
+      </td>
+      <td>
+        <a href="mailto:jose.alberto.guzman@umich.mx">jose.alberto.guzman@umich.mx</a><br/>
+        <a href="https://orcid.org/0000-0002-9309-9390">ORCID</a>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" width="120">
+        <img src="docs/team/harias.webp" alt="Dr. Heriberto Árias Rojas" width="96">
+      </td>
+      <td>
+        <b>Dr. Heriberto Árias Rojas</b> :mexico:<br/>
+        <sub>Engineering applications</sub>
+      </td>
+      <td>
+        <a href="http://www.siiia.com.mx">SIIIA MATH: Soluciones en ingeniería</a><br/>
+        <a href="http://www.umich.mx">Universidad Michoacana de San Nicolás de Hidalgo</a>
+      </td>
+      <td>
+        <a href="mailto:heriberto.arias@umich.mx">heriberto.arias@umich.mx</a><br/>
+        <a href="https://orcid.org/0000-0002-7641-8310">ORCID</a>
+      </td>
+    </tr>
+  </tbody>
 </table>
 
 ---
