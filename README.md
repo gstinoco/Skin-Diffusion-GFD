@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<img src="docs/logo/logo.svg" alt="Skin Diffusion Simulator with GFD logo" width="680" style="margin: 20px 0;">
+<img src="docs/logo/logo.png" alt="Skin Diffusion Simulator with GFD logo" width="680" style="margin: 20px 0;">
 
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-black.svg)](https://github.com/gstinoco/Skin-Diffusion-GFD) [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/) [![NumPy](https://img.shields.io/badge/NumPy-1.20+-orange.svg)](https://numpy.org/) [![SciPy](https://img.shields.io/badge/SciPy-1.7+-green.svg)](https://scipy.org/) [![Matplotlib](https://img.shields.io/badge/Matplotlib-3.4+-red.svg)](https://matplotlib.org/) [![Numba](https://img.shields.io/badge/Numba-0.54+-purple.svg)](https://numba.pydata.org/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -392,7 +392,7 @@ Dataset/
 
 ### :bar_chart: Data Volume
 
-- **Total Images**: $(\#ci) \times (\#nu)$ per region (e.g., $100 \times 900 = 90{,}000$ images/region)
+- **Total Images**: $N_{c_i} \times N_{\nu}$ per region (e.g., $100 \times 900 = 90{,}000$ images/region)
 - **Storage**: Varies by mesh size and compression (typically several GB per full sweep)
 - **Parameters**: Initial concentration ($c_i$) and diffusion coefficient ($\nu$)
 - **Resolution**: Defined by the selected region mesh (e.g., $61 \times 61$, $224 \times 224$, $256 \times 256$ nodes)
@@ -932,43 +932,119 @@ SOFTWARE.
 
 ## :email: Contact & Support
 
-### :busts_in_silhouette: Research Group Contact
+<div align="center">
 
-**Primary Contact:**
-- **Dr. Gerardo Tinoco Guerrero**
-  - :email: gerardo.tinoco@umich.mx
-  - :office: SIIIA MATH: Soluciones en ingeniería
-  - :classical_building: Universidad Michoacana de San Nicolás de Hidalgo
-  - :round_pushpin: Morelia, Michoacán, México
+*Contact channels, technical support, and collaboration opportunities*
 
-### :question: Technical Support
+[![Issues](https://img.shields.io/badge/🧩-GitHub%20Issues-24292f?style=flat-square&logo=github)](https://github.com/gstinoco/Skin-Diffusion-GFD/issues)
+[![Email](https://img.shields.io/badge/📧-Email%20Support-blue?style=flat-square)](mailto:gerardo.tinoco@umich.mx)
 
-For technical questions and issues:
-1. **GitHub Issues**: Create an issue for bug reports or feature requests
-2. **Email Support**: Contact the research team for complex technical inquiries
-3. **Academic Collaboration**: Reach out for research partnerships and joint projects
+</div>
 
-### :handshake: Collaboration Opportunities
+<table align="center" width="100%" cellspacing="14">
+  <tr>
+    <td width="50%" valign="top">
+      <div style="border: 1px solid #d0d7de; border-radius: 12px; padding: 16px;">
+        <div align="center">
+          <b>Primary Contact</b><br/>
+          <sub>Research group coordination</sub>
+        </div>
+        <br/>
+        <b>Dr. Gerardo Tinoco Guerrero</b><br/>
+        <sub>Morelia, Michoacán, México</sub>
+        <br/><br/>
+        <div align="center">
+          <a href="mailto:gerardo.tinoco@umich.mx"><img alt="Email" src="https://img.shields.io/badge/📧-gerardo.tinoco@umich.mx-blue?style=flat-square"></a><br/>
+          <a href="http://www.siiia.com.mx"><img alt="Company: SIIIA MATH" src="https://img.shields.io/badge/🏢%20Company-SIIIA%20MATH-0B1B3A?style=flat-square"></a>
+          <a href="http://www.umich.mx"><img alt="University: UMSNH" src="https://img.shields.io/badge/🎓%20University-UMSNH-1A3A6B?style=flat-square"></a>
+        </div>
+      </div>
+    </td>
+    <td width="50%" valign="top">
+      <div style="border: 1px solid #d0d7de; border-radius: 12px; padding: 16px;">
+        <div align="center">
+          <b>Technical Support</b><br/>
+          <sub>Bug reports, questions, and collaboration requests</sub>
+        </div>
+        <br/>
+        <table width="100%">
+          <tr>
+            <td width="38%"><b>1) Issues</b></td>
+            <td>
+              <a href="https://github.com/gstinoco/Skin-Diffusion-GFD/issues"><img alt="Open an Issue" src="https://img.shields.io/badge/🧩-Open%20an%20Issue-24292f?style=flat-square&logo=github"></a>
+            </td>
+          </tr>
+          <tr>
+            <td width="38%"><b>2) Email</b></td>
+            <td>
+              <a href="mailto:gerardo.tinoco@umich.mx"><img alt="Email Support" src="https://img.shields.io/badge/📧-Send%20Email-blue?style=flat-square"></a>
+            </td>
+          </tr>
+          <tr>
+            <td width="38%"><b>3) Collaboration</b></td>
+            <td>
+              <a href="mailto:gerardo.tinoco@umich.mx?subject=Skin-Diffusion-GFD%20Collaboration"><img alt="Collaboration Request" src="https://img.shields.io/badge/🤝-Request%20Collaboration-2E8B57?style=flat-square"></a>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </td>
+  </tr>
+</table>
 
-We welcome collaborations in:
-
-- **Biomedical Engineering**: Transdermal delivery systems, medical device design
-- **Machine Learning**: AI-driven analysis of diffusion patterns, predictive modeling
-- **Numerical Methods**: Advanced discretization techniques, solver optimization
-- **Clinical Research**: Validation with experimental data, clinical applications
-- **Pharmaceutical Research**: Drug delivery optimization, formulation studies
-
-### :mortar_board: Student Opportunities
-
-- **Graduate Programs**: Contact Dr. Tinoco for research opportunities
-- **Undergraduate Projects**: Available thesis topics in computational biology
-- **Internships**: Summer research programs in scientific computing
-
-### :globe_with_meridians: Institutional Affiliations
-
-- **SIIIA MATH**: [Soluciones en ingeniería](http://www.siiia.com.mx)
-- **UMSNH**: [Universidad Michoacana de San Nicolás de Hidalgo](http://www.umich.mx)
-- **Research Group**: Numerical Methods and Scientific Computing
+<table align="center" width="100%" cellspacing="14">
+  <tr>
+    <td width="60%" valign="top">
+      <div style="border: 1px solid #d0d7de; border-radius: 12px; padding: 16px;">
+        <div align="center">
+          <b>Collaboration Opportunities</b><br/>
+          <sub>We welcome research and engineering partnerships</sub>
+        </div>
+        <br/>
+        <table width="100%">
+          <tr>
+            <td width="50%"><b>🩺 Biomedical Engineering</b><br/><sub>Transdermal delivery systems, medical device design</sub></td>
+            <td width="50%"><b>🤖 Machine Learning</b><br/><sub>AI-driven analysis of diffusion patterns, predictive modeling</sub></td>
+          </tr>
+          <tr>
+            <td width="50%"><b>🧮 Numerical Methods</b><br/><sub>Advanced discretization techniques, solver optimization</sub></td>
+            <td width="50%"><b>🧪 Clinical Research</b><br/><sub>Validation with experimental data, clinical applications</sub></td>
+          </tr>
+          <tr>
+            <td width="50%"><b>💊 Pharmaceutical Research</b><br/><sub>Drug delivery optimization, formulation studies</sub></td>
+            <td width="50%"></td>
+          </tr>
+        </table>
+      </div>
+    </td>
+    <td width="40%" valign="top">
+      <div style="border: 1px solid #d0d7de; border-radius: 12px; padding: 16px;">
+        <div align="center">
+          <b>Student Opportunities</b><br/>
+          <sub>Projects and training in scientific computing</sub>
+        </div>
+        <br/>
+        <ul>
+          <li><b>Graduate Programs</b>: research opportunities with the team</li>
+          <li><b>Undergraduate Projects</b>: thesis topics in computational biology</li>
+          <li><b>Internships</b>: scientific computing and applied modeling</li>
+        </ul>
+      </div>
+      <br/>
+      <div style="border: 1px solid #d0d7de; border-radius: 12px; padding: 16px;">
+        <div align="center">
+          <b>Institutional Affiliations</b>
+        </div>
+        <br/>
+        <div align="center">
+          <a href="http://www.siiia.com.mx"><img alt="SIIIA MATH" src="https://img.shields.io/badge/🏢-SIIIA%20MATH-0B1B3A?style=flat-square"></a>
+          <a href="http://www.umich.mx"><img alt="UMSNH" src="https://img.shields.io/badge/🎓-UMSNH-1A3A6B?style=flat-square"></a><br/>
+          <img alt="Research Group" src="https://img.shields.io/badge/🔬-Numerical%20Methods%20%26%20Scientific%20Computing-555?style=flat-square">
+        </div>
+      </div>
+    </td>
+  </tr>
+</table>
 
 ---
 
