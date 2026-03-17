@@ -4,7 +4,7 @@
 
 <img src="docs/logo/logo.png" alt="Skin Diffusion Simulator with GFD logo" width="680" style="margin: 20px 0;">
 
-[![GitHub](https://img.shields.io/badge/GitHub-Repository-black.svg)](https://github.com/gstinoco/Skin-Diffusion-GFD) [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/) [![NumPy](https://img.shields.io/badge/NumPy-1.20+-orange.svg)](https://numpy.org/) [![SciPy](https://img.shields.io/badge/SciPy-1.7+-green.svg)](https://scipy.org/) [![Matplotlib](https://img.shields.io/badge/Matplotlib-3.4+-red.svg)](https://matplotlib.org/) [![Numba](https://img.shields.io/badge/Numba-0.54+-purple.svg)](https://numba.pydata.org/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-black.svg)](https://github.com/gstinoco/mGFD_Skin_Diffusion_Simulator) [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/) [![NumPy](https://img.shields.io/badge/NumPy-1.20+-orange.svg)](https://numpy.org/) [![SciPy](https://img.shields.io/badge/SciPy-1.7+-green.svg)](https://scipy.org/) [![Matplotlib](https://img.shields.io/badge/Matplotlib-3.4+-red.svg)](https://matplotlib.org/) [![Numba](https://img.shields.io/badge/Numba-0.54+-purple.svg)](https://numba.pydata.org/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 **High-Performance Computational Framework for Skin Diffusion Modeling**
 
@@ -116,8 +116,8 @@ tqdm >= 4.62.0            # Progress bars
 
 ```bash
 # Method 1: Direct installation
-git clone https://github.com/gstinoco/Skin-Diffusion-GFD.git
-cd Skin-Diffusion-GFD
+git clone https://github.com/gstinoco/mGFD_Skin_Diffusion_Simulator.git
+cd mGFD_Skin_Diffusion_Simulator
 pip install -r requirements.txt
 
 # Method 2: Virtual environment (recommended)
@@ -448,8 +448,8 @@ Parallel Efficiency: 85-90%   # Multi-core performance
 ### :star2: Contribute to the Project
 *Bug reports, feature requests, and pull requests are welcome*
 
-[![Issues](https://img.shields.io/github/issues/gstinoco/Skin-Diffusion-GFD?style=flat-square)](https://github.com/gstinoco/Skin-Diffusion-GFD/issues)
-[![Pull Requests](https://img.shields.io/github/issues-pr/gstinoco/Skin-Diffusion-GFD?style=flat-square)](https://github.com/gstinoco/Skin-Diffusion-GFD/pulls)
+[![Issues](https://img.shields.io/github/issues/gstinoco/mGFD_Skin_Diffusion_Simulator?style=flat-square)](https://github.com/gstinoco/mGFD_Skin_Diffusion_Simulator/issues)
+[![Pull Requests](https://img.shields.io/github/issues-pr/gstinoco/mGFD_Skin_Diffusion_Simulator?style=flat-square)](https://github.com/gstinoco/mGFD_Skin_Diffusion_Simulator/pulls)
 
 </div>
 
@@ -466,8 +466,8 @@ Parallel Efficiency: 85-90%   # Multi-core performance
 ### :computer: Code Contributions
 
 ```bash
-git clone https://github.com/yourusername/Skin-Diffusion-GFD.git
-cd Skin-Diffusion-GFD
+git clone https://github.com/yourusername/mGFD_Skin_Diffusion_Simulator.git
+cd mGFD_Skin_Diffusion_Simulator
 
 python -m venv dev_env
 source dev_env/bin/activate  # On Windows: dev_env\Scripts\activate
@@ -743,7 +743,7 @@ If you use this software in your research, please cite:
   year={2025},
   institution={Universidad Michoacana de San Nicolás de Hidalgo},
   organization={SIIIA MATH: Soluciones en ingeniería},
-  url={https://github.com/gstinoco/Skin-Diffusion-GFD},
+  url={https://github.com/gstinoco/mGFD_Skin_Diffusion_Simulator},
   note={Advanced computational framework for skin diffusion modeling using 
         Generalized Finite Differences method}
 }
@@ -936,7 +936,7 @@ SOFTWARE.
 
 *Contact channels, technical support, and collaboration opportunities*
 
-[![Issues](https://img.shields.io/badge/🧩-GitHub%20Issues-24292f?style=flat-square&logo=github)](https://github.com/gstinoco/Skin-Diffusion-GFD/issues)
+[![Issues](https://img.shields.io/badge/🧩-GitHub%20Issues-24292f?style=flat-square&logo=github)](https://github.com/gstinoco/mGFD_Skin_Diffusion_Simulator/issues)
 [![Email](https://img.shields.io/badge/📧-Email%20Support-blue?style=flat-square)](mailto:gerardo.tinoco@umich.mx)
 
 </div>
@@ -967,9 +967,9 @@ SOFTWARE.
       </div>
       <br/>
       <div align="center">
-        <a href="https://github.com/gstinoco/Skin-Diffusion-GFD/issues"><img alt="Open an Issue" src="https://img.shields.io/badge/🧩-Open%20Issue-24292f?style=flat-square&logo=github"></a>
+        <a href="https://github.com/gstinoco/mGFD_Skin_Diffusion_Simulator/issues"><img alt="Open an Issue" src="https://img.shields.io/badge/🧩-Open%20Issue-24292f?style=flat-square&logo=github"></a>
         <a href="mailto:gerardo.tinoco@umich.mx"><img alt="Send Email" src="https://img.shields.io/badge/📧-Send%20Email-blue?style=flat-square"></a>
-        <a href="mailto:gerardo.tinoco@umich.mx?subject=Skin-Diffusion-GFD%20Collaboration"><img alt="Request Collaboration" src="https://img.shields.io/badge/🤝-Request%20Collaboration-2E8B57?style=flat-square"></a>
+        <a href="mailto:gerardo.tinoco@umich.mx?subject=mGFD_Skin_Diffusion_Simulator%20Collaboration"><img alt="Request Collaboration" src="https://img.shields.io/badge/🤝-Request%20Collaboration-2E8B57?style=flat-square"></a>
       </div>
       <br/>
       <ul>
@@ -1065,9 +1065,9 @@ SOFTWARE.
 
 *Advancing biomedical diffusion modeling through open-source collaboration*
 
-[![GitHub stars](https://img.shields.io/github/stars/gstinoco/Skin-Diffusion-GFD?style=social)](https://github.com/gstinoco/Skin-Diffusion-GFD/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/gstinoco/Skin-Diffusion-GFD?style=social)](https://github.com/gstinoco/Skin-Diffusion-GFD/network/members)
-[![GitHub watchers](https://img.shields.io/github/watchers/gstinoco/Skin-Diffusion-GFD?style=social)](https://github.com/gstinoco/Skin-Diffusion-GFD/watchers)
+[![GitHub stars](https://img.shields.io/github/stars/gstinoco/mGFD_Skin_Diffusion_Simulator?style=social)](https://github.com/gstinoco/mGFD_Skin_Diffusion_Simulator/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/gstinoco/mGFD_Skin_Diffusion_Simulator?style=social)](https://github.com/gstinoco/mGFD_Skin_Diffusion_Simulator/network/members)
+[![GitHub watchers](https://img.shields.io/github/watchers/gstinoco/mGFD_Skin_Diffusion_Simulator?style=social)](https://github.com/gstinoco/mGFD_Skin_Diffusion_Simulator/watchers)
 
 <br/>
 
