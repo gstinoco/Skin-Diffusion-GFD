@@ -11,7 +11,7 @@
 *Advanced numerical simulation using Generalized Finite Differences for biomedical applications*
 
 ### :link: Quick Links
-[![🚀 Quick Start](https://img.shields.io/badge/🚀-Quick%20Start-green)](#rocket-quick-start) [![📦 Install](https://img.shields.io/badge/📦-Install-blue)](#package-installation--setup) [![🧮 Model](https://img.shields.io/badge/🧮-Model-purple)](#books-mathematical-model) [![🎬 Visualizations](https://img.shields.io/badge/🎬-Visualizations-purple)](#movie_camera-visualizations) [![👥 Team](https://img.shields.io/badge/👥-Research%20Team-blue)](#scientist-research-team)
+[![🚀 Quick Start](https://img.shields.io/badge/🚀-Quick%20Start-green)](#rocket-quick-start) [![📦 Install](https://img.shields.io/badge/📦-Install-blue)](#package-installation--setup) [![🧮 Model](https://img.shields.io/badge/🧮-Model-purple)](#books-mathematical-model) [![🎬 Visualizations](https://img.shields.io/badge/🎬-Visualizations-purple)](#movie_camera-visualizations) [![👥 Team](https://img.shields.io/badge/👥-Research%20Team-blue)](#scientist-research-team) [![🤝 Contribute](https://img.shields.io/badge/🤝-Contributing-orange)](#handshake-contributing) [![🏭 Partners](https://img.shields.io/badge/🏭-Industry%20Partners-0B1B3A)](#factory-industry-partners-supporting-innovation) [![🙏 Thanks](https://img.shields.io/badge/🙏-Acknowledgments-darkgreen)](#pray-acknowledgments)
 
 </div>
 
@@ -22,14 +22,19 @@
 - [Features](#sparkles-features)
 - [Installation & Setup](#package-installation--setup)
 - [Quick Start](#rocket-quick-start)
+- [Usage Guide](#book-usage-guide)
 - [Visualizations](#movie_camera-visualizations)
 - [Project Architecture](#open_file_folder-project-architecture)
 - [Mathematical Model](#books-mathematical-model)
 - [Dataset Structure](#file_cabinet-dataset-structure)
 - [Performance Benchmarks](#chart_with_upwards_trend-performance-benchmarks)
+- [Contributing](#handshake-contributing)
 - [Research Team](#scientist-research-team)
+- [Industry Partners Supporting Innovation](#factory-industry-partners-supporting-innovation)
 - [Citation & License](#memo-citation--license)
+- [Acknowledgments](#pray-acknowledgments)
 - [Contact](#email-contact--support)
+- [FAQ](#speech_balloon-faq)
 
 ---
 
@@ -178,6 +183,85 @@ region/skin_base.png      # Base for the geometries
 
 ---
 
+## :book: Usage Guide
+
+<div align="center">
+
+*Practical workflows for running simulations and generating datasets*
+
+</div>
+
+### :zap: Single Simulation
+
+<table>
+  <thead>
+    <tr>
+      <th align="left" width="170">Step</th>
+      <th align="left">What to do</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>1) Run</b></td>
+      <td>
+        <pre><code>python GFD_skin.py</code></pre>
+      </td>
+    </tr>
+    <tr>
+      <td><b>2) Outputs</b></td>
+      <td>
+        <b>Images:</b> <code>skin.png</code>, <code>skin2.png</code> (saved in the project root)
+      </td>
+    </tr>
+    <tr>
+      <td><b>3) Customize</b></td>
+      <td>
+        Edit <code>main()</code> in <code>GFD_skin.py</code> to set the region mesh, diffusion coefficient (<code>nu</code>) and inlet concentration (<code>c_i</code>).
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### :construction: Dataset Generation (Interactive)
+
+<table>
+  <thead>
+    <tr>
+      <th align="left" width="170">Step</th>
+      <th align="left">What to do</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>1) Run</b></td>
+      <td>
+        <pre><code>python create_dataset.py</code></pre>
+      </td>
+    </tr>
+    <tr>
+      <td><b>2) Select mesh</b></td>
+      <td>
+        Choose a region from <code>region/</code> (e.g., <code>skin061</code>, <code>skin224</code>, <code>skin256</code>).
+      </td>
+    </tr>
+    <tr>
+      <td><b>3) Configure sweep</b></td>
+      <td>
+        The script requests a range for <code>nu</code> as integer multipliers of <code>1e-8</code>, plus <code>c_i</code> range, time steps, workers, and optional compression.
+      </td>
+    </tr>
+    <tr>
+      <td><b>4) Outputs</b></td>
+      <td>
+        <b>Images:</b> <code>Dataset/&lt;region&gt;/ci_###/nu_XXXXXXXX.png</code><br/>
+        <b>Optional:</b> <code>Dataset/&lt;region&gt;/ci_###.zip</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
 ## :movie_camera: Visualizations
 
 ### :framed_picture: Sample Visualizations Gallery
@@ -186,17 +270,29 @@ region/skin_base.png      # Base for the geometries
 
 **Concentration Initial = 100** | **Different Diffusion Coefficients**
 
-**Low Diffusion Coefficient** ($\nu = 1 \times 10^{-8}$)
+<div align="center">
 
-![Low Diffusion](docs/visualizations/comparison_nu_1e8_ci100.png)
+<table>
+  <tr>
+    <td align="center">
+      <b>Low Diffusion</b><br/>
+      <sub>$\nu = 1 \times 10^{-8}$</sub><br/><br/>
+      <img src="docs/visualizations/comparison_nu_1e8_ci100.png" alt="Low Diffusion" width="240">
+    </td>
+    <td align="center">
+      <b>Medium Diffusion</b><br/>
+      <sub>$\nu = 4.5 \times 10^{-6}$</sub><br/><br/>
+      <img src="docs/visualizations/comparison_nu_450e8_ci100.png" alt="Medium Diffusion" width="240">
+    </td>
+    <td align="center">
+      <b>High Diffusion</b><br/>
+      <sub>$\nu = 9 \times 10^{-6}$</sub><br/><br/>
+      <img src="docs/visualizations/comparison_nu_900e8_ci100.png" alt="High Diffusion" width="240">
+    </td>
+  </tr>
+</table>
 
-**Medium Diffusion Coefficient** ($\nu = 4.5 \times 10^{-6}$)
-
-![Medium Diffusion](docs/visualizations/comparison_nu_450e8_ci100.png)
-
-**High Diffusion Coefficient** ($\nu = 9 \times 10^{-6}$)
-
-![High Diffusion](docs/visualizations/comparison_nu_900e8_ci100.png)
+</div>
 
 > :bar_chart: **Dataset Scale**: A full sweep is 100 initial conditions × 900 diffusion coefficients (= 90,000 simulations per region mesh)
 
@@ -336,7 +432,7 @@ Dataset/
 
 ### :bar_chart: Scalability Analysis
 
-```python
+```text
 # Performance scaling with problem size
 Nodes vs Time: O(N log N)     # Near-linear scaling
 Memory vs Nodes: O(N)         # Linear memory usage
@@ -345,11 +441,55 @@ Parallel Efficiency: 85-90%   # Multi-core performance
 
 ---
 
+## :handshake: Contributing
+
+<div align="center">
+
+### :star2: Contribute to the Project
+*Bug reports, feature requests, and pull requests are welcome*
+
+[![Issues](https://img.shields.io/github/issues/gstinoco/Skin-Diffusion-GFD?style=flat-square)](https://github.com/gstinoco/Skin-Diffusion-GFD/issues)
+[![Pull Requests](https://img.shields.io/github/issues-pr/gstinoco/Skin-Diffusion-GFD?style=flat-square)](https://github.com/gstinoco/Skin-Diffusion-GFD/pulls)
+
+</div>
+
+### :bug: Bug Reports
+1. **Search existing issues**: Check if the bug has already been reported
+2. **Create a detailed report**: Include steps to reproduce and expected vs actual behavior
+3. **Provide context**: Operating system, Python version, and relevant parameters (mesh, $\nu$, $c_i$)
+
+### :bulb: Feature Requests
+1. **Describe the feature**: Clear and concise description of the proposed functionality
+2. **Justify the need**: Explain how it benefits research or reproducibility
+3. **Provide examples**: Use cases, expected inputs/outputs, and acceptance criteria
+
+### :computer: Code Contributions
+
+```bash
+git clone https://github.com/yourusername/Skin-Diffusion-GFD.git
+cd Skin-Diffusion-GFD
+
+python -m venv dev_env
+source dev_env/bin/activate  # On Windows: dev_env\Scripts\activate
+pip install -r requirements.txt
+
+git checkout -b feature/your-feature-name
+```
+
+---
+
 ## :scientist: Research Team
+
+<div align="center">
+
+### :star2: Meet the Team
+*Researchers and graduate students advancing computational diffusion modeling*
+
+</div>
 
 ### :busts_in_silhouette: Main Researchers
 
-<table>
+<table align="center">
   <thead>
     <tr>
       <th align="center" width="120">Photo</th>
@@ -361,7 +501,7 @@ Parallel Efficiency: 85-90%   # Multi-core performance
   <tbody>
     <tr>
       <td align="center" width="120">
-        <img src="docs/team/gtinoco.webp" alt="Dr. Gerardo Tinoco Guerrero" width="96">
+        <img src="docs/team/gtinoco.webp" alt="Dr. Gerardo Tinoco Guerrero" width="96" height="96" style="border-radius: 50%;">
       </td>
       <td>
         <b>Dr. Gerardo Tinoco Guerrero</b> :mexico:<br/>
@@ -379,7 +519,7 @@ Parallel Efficiency: 85-90%   # Multi-core performance
     </tr>
     <tr>
       <td align="center" width="120">
-        <img src="docs/team/dmota.webp" alt="Dr. Francisco Javier Domínguez Mota" width="96">
+        <img src="docs/team/dmota.webp" alt="Dr. Francisco Javier Domínguez Mota" width="96" height="96" style="border-radius: 50%;">
       </td>
       <td>
         <b>Dr. Francisco Javier Domínguez Mota</b> :mexico:<br/>
@@ -397,7 +537,7 @@ Parallel Efficiency: 85-90%   # Multi-core performance
     </tr>
     <tr>
       <td align="center" width="120">
-        <img src="docs/team/jagt.webp" alt="Dr. José Alberto Guzmán Torres" width="96">
+        <img src="docs/team/jagt.webp" alt="Dr. José Alberto Guzmán Torres" width="96" height="96" style="border-radius: 50%;">
       </td>
       <td>
         <b>Dr. José Alberto Guzmán Torres</b> :mexico:<br/>
@@ -415,7 +555,7 @@ Parallel Efficiency: 85-90%   # Multi-core performance
     </tr>
     <tr>
       <td align="center" width="120">
-        <img src="docs/team/harias.webp" alt="Dr. Heriberto Árias Rojas" width="96">
+        <img src="docs/team/harias.webp" alt="Dr. Heriberto Árias Rojas" width="96" height="96" style="border-radius: 50%;">
       </td>
       <td>
         <b>Dr. Heriberto Árias Rojas</b> :mexico:<br/>
@@ -436,7 +576,7 @@ Parallel Efficiency: 85-90%   # Multi-core performance
 
 ### :mortar_board: Ph.D. Research Students
 
-<table>
+<table align="center">
   <thead>
     <tr>
       <th align="center" width="120">Photo</th>
@@ -448,10 +588,11 @@ Parallel Efficiency: 85-90%   # Multi-core performance
   <tbody>
     <tr>
       <td align="center" width="120">
-        <img src="docs/team/gpj.webp" alt="Gabriela Pedraza-Jiménez" width="96">
+        <img src="docs/team/gpj.webp" alt="Gabriela Pedraza-Jiménez" width="96" height="96" style="border-radius: 50%;">
       </td>
       <td>
-        <b>Gabriela Pedraza-Jiménez</b>
+        <b>Gabriela Pedraza-Jiménez</b><br/>
+        <img alt="Ph.D. Research Student" src="https://img.shields.io/badge/Ph.D.-Research%20Student-2E8B57?style=flat-square">
       </td>
       <td>
         <a href="http://www.umich.mx"><img alt="University: UMSNH" src="https://img.shields.io/badge/%F0%9F%8E%93%20University-UMSNH-1A3A6B"></a>
@@ -462,10 +603,11 @@ Parallel Efficiency: 85-90%   # Multi-core performance
     </tr>
     <tr>
       <td align="center" width="120">
-        <img src="docs/team/eci.webp" alt="Eli Chagolla-Inzunza" width="96">
+        <img src="docs/team/eci.webp" alt="Eli Chagolla-Inzunza" width="96" height="96" style="border-radius: 50%;">
       </td>
       <td>
-        <b>Eli Chagolla-Inzunza</b>
+        <b>Eli Chagolla-Inzunza</b><br/>
+        <img alt="Ph.D. Research Student" src="https://img.shields.io/badge/Ph.D.-Research%20Student-2E8B57?style=flat-square">
       </td>
       <td>
         <a href="http://www.umich.mx"><img alt="University: UMSNH" src="https://img.shields.io/badge/%F0%9F%8E%93%20University-UMSNH-1A3A6B"></a>
@@ -479,7 +621,7 @@ Parallel Efficiency: 85-90%   # Multi-core performance
 
 ### :mortar_board: M.Sc. Research Students
 
-<table>
+<table align="center">
   <thead>
     <tr>
       <th align="center" width="120">Photo</th>
@@ -491,10 +633,11 @@ Parallel Efficiency: 85-90%   # Multi-core performance
   <tbody>
     <tr>
       <td align="center" width="120">
-        <img src="docs/team/jlgf.webp" alt="Jorge L. González-Figueroa" width="96">
+        <img src="docs/team/jlgf.webp" alt="Jorge L. González-Figueroa" width="96" height="96" style="border-radius: 50%;">
       </td>
       <td>
-        <b>Jorge L. González-Figueroa</b>
+        <b>Jorge L. González-Figueroa</b><br/>
+        <img alt="M.Sc. Research Student" src="https://img.shields.io/badge/M.Sc.-Research%20Student-green?style=flat-square">
       </td>
       <td>
         <a href="http://www.umich.mx"><img alt="University: UMSNH" src="https://img.shields.io/badge/%F0%9F%8E%93%20University-UMSNH-1A3A6B"></a>
@@ -505,10 +648,11 @@ Parallel Efficiency: 85-90%   # Multi-core performance
     </tr>
     <tr>
       <td align="center" width="120">
-        <img src="docs/team/cnmb.webp" alt="Christopher N. Magaña-Barocio" width="96">
+        <img src="docs/team/cnmb.webp" alt="Christopher N. Magaña-Barocio" width="96" height="96" style="border-radius: 50%;">
       </td>
       <td>
-        <b>Christopher N. Magaña-Barocio</b>
+        <b>Christopher N. Magaña-Barocio</b><br/>
+        <img alt="M.Sc. Research Student" src="https://img.shields.io/badge/M.Sc.-Research%20Student-green?style=flat-square">
       </td>
       <td>
         <a href="http://www.umich.mx"><img alt="University: UMSNH" src="https://img.shields.io/badge/%F0%9F%8E%93%20University-UMSNH-1A3A6B"></a>
@@ -519,6 +663,53 @@ Parallel Efficiency: 85-90%   # Multi-core performance
     </tr>
   </tbody>
 </table>
+
+</div>
+
+---
+
+## :factory: Industry Partners Supporting Innovation
+
+<div align="center">
+
+### :star2: Industry Partners Supporting Innovation
+*Collaboration between academia and industry to accelerate real-world impact*
+
+</div>
+
+<div align="center">
+
+<table align="center" width="70%">
+<tr>
+<td align="center">
+
+### :factory: **SIIIA MATH**
+#### *Soluciones de Ingeniería, México*
+
+<div align="center">
+
+[![Website](https://img.shields.io/badge/🌐-Visit%20Website-blue?style=for-the-badge)](http://www.siiia.com.mx)
+[![Type](https://img.shields.io/badge/📊-R%26D%20Company-orange?style=flat-square)](http://www.siiia.com.mx)
+[![Location](https://img.shields.io/badge/📍-Morelia,%20Mexico-green?style=flat-square)](http://www.siiia.com.mx)
+
+</div>
+
+**🎯 Focus areas:**
+- Mathematical modeling & simulation
+- AI/ML engineering solutions
+- Technology transfer and applied R&amp;D
+
+<div align="center">
+
+[![Contact](https://img.shields.io/badge/📧-Partnership%20Contact-0B1B3A?style=for-the-badge)](mailto:gtinoco@siiia.com.mx)
+
+</div>
+
+</td>
+</tr>
+</table>
+
+</div>
 
 ---
 
@@ -558,12 +749,6 @@ If you use this software in your research, please cite:
 }
 ```
 
-### :classical_building: Institutional Support
-
-**Primary Funding:**
-- :mortar_board: **Universidad Michoacana de San Nicolás de Hidalgo (UMSNH)**
-- :office: **SIIIA MATH: Soluciones en ingeniería**
-
 ### :page_facing_up: License
 
 This project is licensed under the **MIT License** - see the full license text below:
@@ -594,6 +779,154 @@ SOFTWARE.
 ```
 
 **Academic Use:** This software is developed for research and educational purposes. Commercial use is permitted under the MIT License terms.
+
+---
+
+## :pray: Acknowledgments
+
+<div align="center">
+
+### :heart: Special Thanks
+
+*We extend our gratitude to the institutions and partners supporting this research and open-source development*
+
+</div>
+
+### :classical_building: Institutional Support
+
+<table align="center" width="100%" cellspacing="14">
+  <tr>
+    <td width="50%" valign="top">
+      <div style="border: 1px solid #d0d7de; border-radius: 12px; padding: 16px;">
+        <div align="center">
+          <b>🎓 Universidad Michoacana de San Nicolás de Hidalgo (UMSNH)</b><br/>
+          <sub>Academic institution, Mexico</sub><br/><br/>
+          <a href="http://www.umich.mx"><img alt="Website" src="https://img.shields.io/badge/🌐-Website-darkred?style=flat-square"></a>
+          <img alt="Type: University" src="https://img.shields.io/badge/🏷️%20Type-University-1A3A6B?style=flat-square">
+          <img alt="Support: Infrastructure" src="https://img.shields.io/badge/🤝%20Support-Infrastructure-2E8B57?style=flat-square">
+        </div>
+        <br/>
+        <b>Key support</b>
+        <ul>
+          <li>Academic foundation and research infrastructure</li>
+          <li>Scientific training and supervision environment</li>
+        </ul>
+      </div>
+    </td>
+    <td width="50%" valign="top">
+      <div style="border: 1px solid #d0d7de; border-radius: 12px; padding: 16px;">
+        <div align="center">
+          <b>🏛️ Secretariat of Science, Humanities, Technology and Innovation(SECIHTI)</b><br/>
+          <sub> State Secretariat, Mexico</sub><br/><br/>
+          <a href="https://secihti.mx/"><img alt="Website" src="https://img.shields.io/badge/🌐-Website-darkgreen?style=flat-square"></a>
+          <img alt="Type: Government" src="https://img.shields.io/badge/🏷️%20Type-Government-2D6A4F?style=flat-square">
+          <img alt="Support: Funding and Innovation" src="https://img.shields.io/badge/🤝%20Support-Funding%20%26%20Innovation-40916C?style=flat-square">
+        </div>
+        <br/>
+        <b>Key support</b>
+        <ul>
+          <li>Support for science and technology initiatives</li>
+          <li>Funding and innovation promotion</li>
+        </ul>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <div style="border: 1px solid #d0d7de; border-radius: 12px; padding: 16px;">
+        <div align="center">
+          <b>🌿 Centre Internacional de Mètodes Numèrics en Enginyeria (CIMNE)</b><br/>
+          <sub>Industry, Spain</sub><br/><br/>
+          <a href="https://aulas.cimne.com/aula/aula-morelia/"><img alt="Website" src="https://img.shields.io/badge/🌐-Website-orange?style=flat-square"></a>
+          <img alt="Type: Research Center" src="https://img.shields.io/badge/🏷️%20Type-Research%20Center-EE9B00?style=flat-square">
+          <img alt="Support: Collaboration" src="https://img.shields.io/badge/🤝%20Support-Collaboration-CA6702?style=flat-square">
+        </div>
+        <br/>
+        <b>Key support</b>
+        <ul>
+          <li>International collaboration in numerical methods</li>
+          <li>Computational engineering research environment</li>
+        </ul>
+      </div>
+    </td>
+    <td width="50%" valign="top">
+      <div style="border: 1px solid #d0d7de; border-radius: 12px; padding: 16px;">
+        <div align="center">
+          <b>🏭 SIIIA MATH: Soluciones en Ingeniería</b><br/>
+          <sub>Industry, México</sub><br/><br/>
+          <a href="http://www.siiia.com.mx"><img alt="Website" src="https://img.shields.io/badge/🌐-Website-blue?style=flat-square"></a>
+          <img alt="Type: Industry Partner" src="https://img.shields.io/badge/🏷️%20Type-Industry%20Partner-0B1B3A?style=flat-square">
+          <img alt="Support: Technology Transfer" src="https://img.shields.io/badge/🤝%20Support-Technology%20Transfer-1D3557?style=flat-square">
+        </div>
+        <br/>
+        <b>Key support</b>
+        <ul>
+          <li>Industry-driven applied research and development</li>
+          <li>Technology transfer and practical engineering impact</li>
+        </ul>
+      </div>
+    </td>
+  </tr>
+</table>
+
+### :building_with_garden: Research Centers & Collaborations
+
+<div align="center">
+
+<table align="center" width="100%" cellspacing="14">
+  <tr>
+    <td width="50%" valign="top">
+      <div style="border: 1px solid #d0d7de; border-radius: 12px; padding: 16px;">
+        <div align="center">
+          <b>🌿 Aula CIMNE-Morelia</b><br/>
+          <sub>Research collaboration space</sub><br/><br/>
+          <a href="https://aulas.cimne.com/aula/aula-morelia/"><img alt="Website" src="https://img.shields.io/badge/🌐-Website-orange?style=flat-square"></a>
+          <img alt="Area: Numerical Methods" src="https://img.shields.io/badge/🧮%20Area-Numerical%20Methods-EE9B00?style=flat-square">
+          <img alt="Collaboration: Applied Computing" src="https://img.shields.io/badge/🤝%20Collaboration-Applied%20Computing-CA6702?style=flat-square">
+        </div>
+        <br/>
+        <b>Collaboration highlights</b>
+        <ul>
+          <li>Numerical methods and computational engineering environment</li>
+          <li>Academic–industry collaboration and training activities</li>
+        </ul>
+      </div>
+    </td>
+    <td width="50%" valign="top">
+      <div style="border: 1px solid #d0d7de; border-radius: 12px; padding: 16px;">
+        <div align="center">
+          <b>🎓 UMSNH</b><br/>
+          <sub>Academic collaboration</sub><br/><br/>
+          <a href="http://www.umich.mx"><img alt="Website" src="https://img.shields.io/badge/🌐-Website-darkred?style=flat-square"></a>
+          <img alt="Type: University" src="https://img.shields.io/badge/🏷️%20Type-University-1A3A6B?style=flat-square">
+          <img alt="Support: Research Infrastructure" src="https://img.shields.io/badge/🤝%20Support-Research%20Infrastructure-2E8B57?style=flat-square">
+        </div>
+        <br/>
+        <b>Collaboration highlights</b>
+        <ul>
+          <li>Institutional infrastructure supporting research and training</li>
+          <li>Graduate formation and supervision for scientific computing</li>
+        </ul>
+      </div>
+    </td>
+  </tr>
+</table>
+
+</div>
+
+### :computer: Technology Communities
+
+<div align="center">
+
+| :package: Framework | :busts_in_silhouette: Community | :star: Contribution |
+|:---:|:---:|:---:|
+| [![NumPy](https://img.shields.io/badge/NumPy-Scientific%20Computing-013243?style=flat-square&logo=numpy)](https://numpy.org/) | **NumPy Community** | Array computing foundation |
+| [![SciPy](https://img.shields.io/badge/SciPy-Scientific%20Computing-8CAAE6?style=flat-square&logo=scipy)](https://scipy.org/) | **SciPy Community** | Numerical algorithms and I/O |
+| [![Matplotlib](https://img.shields.io/badge/Matplotlib-Visualization-11557C?style=flat-square)](https://matplotlib.org/) | **Matplotlib Community** | Scientific visualization |
+| [![Numba](https://img.shields.io/badge/Numba-JIT%20Acceleration-00A3E0?style=flat-square)](https://numba.pydata.org/) | **Numba Community** | High-performance Python |
+| [![tqdm](https://img.shields.io/badge/tqdm-Progress%20Bars-FFC107?style=flat-square)](https://tqdm.github.io/) | **tqdm Community** | Progress monitoring |
+
+</div>
 
 ---
 
@@ -639,10 +972,44 @@ We welcome collaborations in:
 
 ---
 
+## :speech_balloon: FAQ
+
+<details>
+  <summary><b>Which meshes are available?</b></summary>
+  <br/>
+  Check <code>region/</code> for <code>skin*.mat</code> files (e.g., <code>skin061</code>, <code>skin224</code>, <code>skin256</code>).
+</details>
+
+<details>
+  <summary><b>Where do results go?</b></summary>
+  <br/>
+  <code>python GFD_skin.py</code> saves <code>skin.png</code> and <code>skin2.png</code> in the project root. Dataset generation saves outputs in <code>Dataset/&lt;region&gt;/</code>.
+</details>
+
+<details>
+  <summary><b>Can I use this in commercial projects?</b></summary>
+  <br/>
+  Yes. The project is released under the MIT License.
+</details>
+
+<details>
+  <summary><b>How should I cite this work?</b></summary>
+  <br/>
+  Use the BibTeX entry in the Citation section and the referenced DOI in Scientific References.
+</details>
+
+---
+
 <div align="center">
 
-**:star: If this project helps your research, please consider giving it a star! :star:**
+*Advancing biomedical diffusion modeling through open-source collaboration*
 
-*Advancing biomedical science through computational innovation*
+[![GitHub stars](https://img.shields.io/github/stars/gstinoco/Skin-Diffusion-GFD?style=social)](https://github.com/gstinoco/Skin-Diffusion-GFD/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/gstinoco/Skin-Diffusion-GFD?style=social)](https://github.com/gstinoco/Skin-Diffusion-GFD/network/members)
+[![GitHub watchers](https://img.shields.io/github/watchers/gstinoco/Skin-Diffusion-GFD?style=social)](https://github.com/gstinoco/Skin-Diffusion-GFD/watchers)
+
+<br/>
+
+<b>If this project helps your research, please consider giving it a star.</b>
 
 </div>
