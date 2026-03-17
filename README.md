@@ -71,7 +71,7 @@ This repository presents a **state-of-the-art computational framework** for mode
 - **Parallel Processing**: Multi-core support for dataset generation
 
 ### :bar_chart: Data Generation & Analysis
-- **Massive Dataset Creation**: 360,000+ simulation images
+- **Large-Scale Dataset Creation**: Configurable parameter sweeps (e.g., 90,000 simulations per region mesh for a 100×900 sweep)
 - **Parameter Space Exploration**: Systematic variation of diffusion coefficients and initial conditions
 - **Automated Data Management**: Hierarchical organization and compression
 - **Scientific Visualization**: Advanced plotting with Matplotlib
@@ -130,7 +130,7 @@ pip install -r requirements.txt
 
 ```bash
 # Test installation
-python -c "import numpy, scipy, matplotlib, numba; print(':white_check_mark: Installation successful!')"
+python -c "import numpy, scipy, matplotlib, numba, tqdm; print(':white_check_mark: Installation successful!')"
 
 # Run quick demo
 python GFD_skin.py
@@ -154,8 +154,8 @@ python create_dataset.py
 
 ### :wrench: Advanced Usage Examples
 ```bash
-# Custom mesh resolution (modify in GFD_skin.py)
-# Available meshes: skin224.mat, skin256.mat
+# Select a region mesh (.mat) from region/ (e.g., skin061, skin224, skin256)
+# For single simulations, change the region file inside GFD_skin.py main()
 
 # Parameter exploration
 # Modify diffusion coefficient (nu) and initial concentration (ci) in main()
@@ -167,8 +167,10 @@ python create_dataset.py
 ### :dna: Available Mesh Configurations
 ```bash
 # Standard resolution meshes
+region/skin061.mat        # 61×61 nodes, ~3.7K points
 region/skin224.mat        # 224×224 nodes, ~50K points
 region/skin256.mat        # 256×256 nodes, ~65K points
+region/skin*.mat          # More mesh resolutions available
 
 # Original skin layer
 region/skin_base.png      # Base for the geometries
@@ -196,7 +198,7 @@ region/skin_base.png      # Base for the geometries
 
 ![High Diffusion](docs/visualizations/comparison_nu_900e8_ci100.png)
 
-> :bar_chart: **Dataset Scale**: Over 360,000 simulations across 100 initial conditions and 900 diffusion coefficients for two mesh resolutions
+> :bar_chart: **Dataset Scale**: A full sweep is 100 initial conditions × 900 diffusion coefficients (= 90,000 simulations per region mesh)
 
 ---
 
@@ -228,10 +230,13 @@ region/skin_base.png      # Base for the geometries
 │   └── red files/                          # Mesh generation files
 │
 ├── Dataset/                                # Generated simulation datasets
-│   ├── skin224_ci/                         # $224 \times 224$, varying initial concentration
-│   ├── skin224_nu/                         # $224 \times 224$, varying diffusion coefficient
-│   ├── skin256_ci/                         # $256 \times 256$, varying initial concentration
-│   └── skin256_nu/                         # $256 \times 256$, varying diffusion coefficient
+│   └── <region>/                           # e.g., skin061, skin224, skin256
+│       ├── ci_001/                         # Initial concentration folder
+│       │   ├── nu_0.00000001.png           # One simulation (nu formatted with 8 decimals)
+│       │   └── ...                         # More diffusion coefficients
+│       ├── ci_002/
+│       ├── ...
+│       └── ci_001.zip                      # Optional compressed archive (one per ci_###)
 │
 └── docs/                                   # Documentation and examples
     └── visualizations/                     # Sample visualization gallery
@@ -276,46 +281,31 @@ The generated datasets follow a hierarchical organization:
 
 ```
 Dataset/
-├── skin224_ci/          # $224 \times 224$ mesh, varying initial concentration
-│   ├── ci_001/          # Initial concentration = 0.01 (900 images)
-│   │   ├── nu_0.00000001.png
-│   │   ├── nu_0.00000002.png
-│   │   └── ... (900 files)
-│   ├── ci_002/          # Initial concentration = 0.02 (900 images)
-│   ├── ...
-│   └── ci_100/          # Initial concentration = 1.00 (900 images)
-├── skin224_nu/          # $224 \times 224$ mesh, varying diffusion coefficient
-│   ├── nu_0.00000001/   # Diffusion coefficient = 1×10⁻⁸ (100 images)
-│   │   ├── ci_001.png
-│   │   ├── ci_002.png
-│   │   └── ... (100 files)
-│   ├── nu_0.00000002/   # Diffusion coefficient = 2×10⁻⁸ (100 images)
-│   ├── ...
-│   └── nu_0.00000900/   # Diffusion coefficient = 900×10⁻⁸ (100 images)
-├── skin256_ci/          # $256 \times 256$ mesh, varying initial concentration
-│   ├── ci_001/          # Initial concentration = 0.01 (900 images)
-│   ├── ci_002/          # Initial concentration = 0.02 (900 images)
-│   ├── ...
-│   └── ci_100/          # Initial concentration = 1.00 (900 images)
-└── skin256_nu/          # $256 \times 256$ mesh, varying diffusion coefficient
-    ├── nu_0.00000001/   # Diffusion coefficient = 1×10⁻⁸ (100 images)
-    ├── nu_0.00000002/   # Diffusion coefficient = 2×10⁻⁸ (100 images)
+└── <region>/                        # Selected mesh (e.g., skin061, skin224, skin256)
+    ├── ci_001/                      # Initial concentration folder
+    │   ├── nu_0.00000001.png        # One simulation (nu formatted with 8 decimals)
+    │   ├── nu_0.00000002.png
+    │   └── ...                      # More diffusion coefficients
+    ├── ci_002/
     ├── ...
-    └── nu_0.00000900/   # Diffusion coefficient = 900×10⁻⁸ (100 images)
+    ├── ci_100/
+    ├── ci_001.zip                   # Optional compressed archive
+    ├── ci_002.zip
+    └── ...
 ```
 
 ### :bar_chart: Data Volume
 
-- **Total Images**: 360,000 PNG files
-- **Storage**: ~15-20 GB uncompressed
-- **Parameters**: 100 initial concentrations $\times$ 900 diffusion coefficients per resolution
-- **Resolutions**: $224 \times 224$ and $256 \times 256$ pixels
+- **Total Images**: $(\#ci) \times (\#nu)$ per region (e.g., $100 \times 900 = 90{,}000$ images/region)
+- **Storage**: Varies by mesh size and compression (typically several GB per full sweep)
+- **Parameters**: Initial concentration ($c_i$) and diffusion coefficient ($\nu$)
+- **Resolution**: Defined by the selected region mesh (e.g., $61 \times 61$, $224 \times 224$, $256 \times 256$ nodes)
 
 ### :dart: Dataset Applications
 
 | Use Case | Dataset Type | Description |
 |----------|--------------|-------------|
-| **Machine Learning Training** :robot: | Complete Dataset | 360K images for deep learning |
+| **Machine Learning Training** :robot: | Complete Dataset | Large-scale image dataset per region (e.g., 90,000 images/region for a 100×900 sweep) |
 | **Parameter Studies** :chart_with_upwards_trend: | Subset Analysis | Specific parameter ranges |
 | **Validation** :white_check_mark: | Test Sets | Independent validation data |
 | **Benchmarking** :trophy: | Reference Solutions | Standard test cases |
@@ -378,12 +368,13 @@ Parallel Efficiency: 85-90%   # Multi-core performance
         <sub>Numerical Methods &amp; Computational Mathematics</sub>
       </td>
       <td>
-        <a href="http://www.siiia.com.mx">SIIIA MATH: Soluciones en ingeniería</a><br/><sub>────────</sub><br/>
-        <a href="http://www.umich.mx">Universidad Michoacana de San Nicolás de Hidalgo</a>
+        <a href="http://www.siiia.com.mx"><img alt="Company: SIIIA MATH" src="https://img.shields.io/badge/%F0%9F%8F%A2%20Company-SIIIA%20MATH-0B1B3A"></a><br/>
+        <a href="http://www.umich.mx"><img alt="University: UMSNH" src="https://img.shields.io/badge/%F0%9F%8E%93%20University-UMSNH-1A3A6B"></a>
       </td>
       <td>
-        <a href="mailto:gerardo.tinoco@umich.mx">gerardo.tinoco@umich.mx</a><br/><sub>────────</sub><br/>
-        <a href="https://orcid.org/0000-0003-3119-770X">ORCID</a>
+        <a href="mailto:gerardo.tinoco@umich.mx"><img alt="Contact" src="https://img.shields.io/badge/%F0%9F%93%A7-Contact-blue"></a><br/>
+        <a href="https://orcid.org/0000-0003-3119-770X"><img alt="ORCID 0000-0003-3119-770X" src="https://img.shields.io/badge/ORCID-0000--0003--3119--770X-green"></a><br/>
+        <a href="https://www.researchgate.net/profile/Gerardo-Tinoco-Guerrero"><img alt="ResearchGate Profile" src="https://img.shields.io/badge/ResearchGate-Profile-teal"></a>
       </td>
     </tr>
     <tr>
@@ -395,12 +386,13 @@ Parallel Efficiency: 85-90%   # Multi-core performance
         <sub>Applied Mathematics &amp; Finite Difference Methods</sub>
       </td>
       <td>
-        <a href="http://www.siiia.com.mx">SIIIA MATH: Soluciones en ingeniería</a><br/><sub>────────</sub><br/>
-        <a href="http://www.umich.mx">Universidad Michoacana de San Nicolás de Hidalgo</a>
+        <a href="http://www.siiia.com.mx"><img alt="Company: SIIIA MATH" src="https://img.shields.io/badge/%F0%9F%8F%A2%20Company-SIIIA%20MATH-0B1B3A"></a><br/>
+        <a href="http://www.umich.mx"><img alt="University: UMSNH" src="https://img.shields.io/badge/%F0%9F%8E%93%20University-UMSNH-1A3A6B"></a>
       </td>
       <td>
-        <a href="mailto:francisco.mota@umich.mx">francisco.mota@umich.mx</a><br/><sub>────────</sub><br/>
-        <a href="https://orcid.org/0000-0001-6837-172X">ORCID</a>
+        <a href="mailto:francisco.mota@umich.mx"><img alt="Contact" src="https://img.shields.io/badge/%F0%9F%93%A7-Contact-blue"></a><br/>
+        <a href="https://orcid.org/0000-0001-6837-172X"><img alt="ORCID 0000-0001-6837-172X" src="https://img.shields.io/badge/ORCID-0000--0001--6837--172X-green"></a><br/>
+        <a href="https://www.researchgate.net/profile/Francisco-Dominguez-Mota"><img alt="ResearchGate Profile" src="https://img.shields.io/badge/ResearchGate-Profile-teal"></a>
       </td>
     </tr>
     <tr>
@@ -412,12 +404,13 @@ Parallel Efficiency: 85-90%   # Multi-core performance
         <sub>Engineering applications and Artificial Intelligence</sub>
       </td>
       <td>
-        <a href="http://www.siiia.com.mx">SIIIA MATH: Soluciones en ingeniería</a><br/><sub>────────</sub><br/>
-        <a href="http://www.umich.mx">Universidad Michoacana de San Nicolás de Hidalgo</a>
+        <a href="http://www.siiia.com.mx"><img alt="Company: SIIIA MATH" src="https://img.shields.io/badge/%F0%9F%8F%A2%20Company-SIIIA%20MATH-0B1B3A"></a><br/>
+        <a href="http://www.umich.mx"><img alt="University: UMSNH" src="https://img.shields.io/badge/%F0%9F%8E%93%20University-UMSNH-1A3A6B"></a>
       </td>
       <td>
-        <a href="mailto:jose.alberto.guzman@umich.mx">jose.alberto.guzman@umich.mx</a><br/><sub>────────</sub><br/>
-        <a href="https://orcid.org/0000-0002-9309-9390">ORCID</a>
+        <a href="mailto:jose.alberto.guzman@umich.mx"><img alt="Contact" src="https://img.shields.io/badge/%F0%9F%93%A7-Contact-blue"></a><br/>
+        <a href="https://orcid.org/0000-0002-9309-9390"><img alt="ORCID 0000-0002-9309-9390" src="https://img.shields.io/badge/ORCID-0000--0002--9309--9390-green"></a><br/>
+        <a href="https://www.researchgate.net/profile/Jose-Guzman-Torres"><img alt="ResearchGate Profile" src="https://img.shields.io/badge/ResearchGate-Profile-teal"></a>
       </td>
     </tr>
     <tr>
@@ -429,12 +422,99 @@ Parallel Efficiency: 85-90%   # Multi-core performance
         <sub>Engineering applications</sub>
       </td>
       <td>
-        <a href="http://www.siiia.com.mx">SIIIA MATH: Soluciones en ingeniería</a><br/><sub>────────</sub><br/>
-        <a href="http://www.umich.mx">Universidad Michoacana de San Nicolás de Hidalgo</a>
+        <a href="http://www.siiia.com.mx"><img alt="Company: SIIIA MATH" src="https://img.shields.io/badge/%F0%9F%8F%A2%20Company-SIIIA%20MATH-0B1B3A"></a><br/>
+        <a href="http://www.umich.mx"><img alt="University: UMSNH" src="https://img.shields.io/badge/%F0%9F%8E%93%20University-UMSNH-1A3A6B"></a>
       </td>
       <td>
-        <a href="mailto:heriberto.arias@umich.mx">heriberto.arias@umich.mx</a><br/><sub>────────</sub><br/>
-        <a href="https://orcid.org/0000-0002-7641-8310">ORCID</a>
+        <a href="mailto:heriberto.arias@umich.mx"><img alt="Contact" src="https://img.shields.io/badge/%F0%9F%93%A7-Contact-blue"></a><br/>
+        <a href="https://orcid.org/0000-0002-7641-8310"><img alt="ORCID 0000-0002-7641-8310" src="https://img.shields.io/badge/ORCID-0000--0002--7641--8310-green"></a><br/>
+        <a href="https://www.researchgate.net/profile/Heriberto-Arias-Rojas"><img alt="ResearchGate Profile" src="https://img.shields.io/badge/ResearchGate-Profile-teal"></a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### :mortar_board: Ph.D. Research Students
+
+<table>
+  <thead>
+    <tr>
+      <th align="center" width="120">Photo</th>
+      <th align="left">Student</th>
+      <th align="left">Institution</th>
+      <th align="left">Contact</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center" width="120">
+        <img src="docs/team/gpj.webp" alt="Gabriela Pedraza-Jiménez" width="96">
+      </td>
+      <td>
+        <b>Gabriela Pedraza-Jiménez</b>
+      </td>
+      <td>
+        <a href="http://www.umich.mx"><img alt="University: UMSNH" src="https://img.shields.io/badge/%F0%9F%8E%93%20University-UMSNH-1A3A6B"></a>
+      </td>
+      <td>
+        <a href="mailto:2220157h@umich.mx"><img alt="Contact" src="https://img.shields.io/badge/%F0%9F%93%A7-Contact-blue"></a>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" width="120">
+        <img src="docs/team/eci.webp" alt="Eli Chagolla-Inzunza" width="96">
+      </td>
+      <td>
+        <b>Eli Chagolla-Inzunza</b>
+      </td>
+      <td>
+        <a href="http://www.umich.mx"><img alt="University: UMSNH" src="https://img.shields.io/badge/%F0%9F%8E%93%20University-UMSNH-1A3A6B"></a>
+      </td>
+      <td>
+        <a href="mailto:1137626b@umich.mx"><img alt="Contact" src="https://img.shields.io/badge/%F0%9F%93%A7-Contact-blue"></a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### :mortar_board: M.Sc. Research Students
+
+<table>
+  <thead>
+    <tr>
+      <th align="center" width="120">Photo</th>
+      <th align="left">Student</th>
+      <th align="left">Institution</th>
+      <th align="left">Contact</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center" width="120">
+        <img src="docs/team/jlgf.webp" alt="Jorge L. González-Figueroa" width="96">
+      </td>
+      <td>
+        <b>Jorge L. González-Figueroa</b>
+      </td>
+      <td>
+        <a href="http://www.umich.mx"><img alt="University: UMSNH" src="https://img.shields.io/badge/%F0%9F%8E%93%20University-UMSNH-1A3A6B"></a>
+      </td>
+      <td>
+        <a href="mailto:1718717h@umich.mx"><img alt="Contact" src="https://img.shields.io/badge/%F0%9F%93%A7-Contact-blue"></a>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" width="120">
+        <img src="docs/team/cnmb.webp" alt="Christopher N. Magaña-Barocio" width="96">
+      </td>
+      <td>
+        <b>Christopher N. Magaña-Barocio</b>
+      </td>
+      <td>
+        <a href="http://www.umich.mx"><img alt="University: UMSNH" src="https://img.shields.io/badge/%F0%9F%8E%93%20University-UMSNH-1A3A6B"></a>
+      </td>
+      <td>
+        <a href="mailto:1339846k@umich.mx"><img alt="Contact" src="https://img.shields.io/badge/%F0%9F%93%A7-Contact-blue"></a>
       </td>
     </tr>
   </tbody>
@@ -450,7 +530,7 @@ Parallel Efficiency: 85-90%   # Multi-core performance
 
 ### :trophy: Research Achievements
 
-- **360,000+ Simulation Dataset**: Largest publicly available skin diffusion dataset
+- **Large-Scale Simulation Dataset**: Configurable sweeps (e.g., 90,000 simulations per region mesh for a 100×900 sweep)
 - **High-Performance Implementation**: 3-4x speedup with Numba JIT optimization
 - **Open Source Framework**: MIT licensed for academic and commercial use
 - **Cross-Platform Compatibility**: Windows, Linux, macOS support
