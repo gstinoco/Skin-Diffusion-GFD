@@ -378,11 +378,11 @@ Parallel Efficiency: 85-90%   # Multi-core performance
         <sub>Numerical Methods &amp; Computational Mathematics</sub>
       </td>
       <td>
-        <a href="http://www.siiia.com.mx">SIIIA MATH: Soluciones en ingeniería</a><br/>
+        <a href="http://www.siiia.com.mx">SIIIA MATH: Soluciones en ingeniería</a><br/><sub>────────</sub><br/>
         <a href="http://www.umich.mx">Universidad Michoacana de San Nicolás de Hidalgo</a>
       </td>
       <td>
-        <a href="mailto:gerardo.tinoco@umich.mx">gerardo.tinoco@umich.mx</a><br/>
+        <a href="mailto:gerardo.tinoco@umich.mx">gerardo.tinoco@umich.mx</a><br/><sub>────────</sub><br/>
         <a href="https://orcid.org/0000-0003-3119-770X">ORCID</a>
       </td>
     </tr>
@@ -395,11 +395,11 @@ Parallel Efficiency: 85-90%   # Multi-core performance
         <sub>Applied Mathematics &amp; Finite Difference Methods</sub>
       </td>
       <td>
-        <a href="http://www.siiia.com.mx">SIIIA MATH: Soluciones en ingeniería</a><br/>
+        <a href="http://www.siiia.com.mx">SIIIA MATH: Soluciones en ingeniería</a><br/><sub>────────</sub><br/>
         <a href="http://www.umich.mx">Universidad Michoacana de San Nicolás de Hidalgo</a>
       </td>
       <td>
-        <a href="mailto:francisco.mota@umich.mx">francisco.mota@umich.mx</a><br/>
+        <a href="mailto:francisco.mota@umich.mx">francisco.mota@umich.mx</a><br/><sub>────────</sub><br/>
         <a href="https://orcid.org/0000-0001-6837-172X">ORCID</a>
       </td>
     </tr>
@@ -412,11 +412,11 @@ Parallel Efficiency: 85-90%   # Multi-core performance
         <sub>Engineering applications and Artificial Intelligence</sub>
       </td>
       <td>
-        <a href="http://www.siiia.com.mx">SIIIA MATH: Soluciones en ingeniería</a><br/>
+        <a href="http://www.siiia.com.mx">SIIIA MATH: Soluciones en ingeniería</a><br/><sub>────────</sub><br/>
         <a href="http://www.umich.mx">Universidad Michoacana de San Nicolás de Hidalgo</a>
       </td>
       <td>
-        <a href="mailto:jose.alberto.guzman@umich.mx">jose.alberto.guzman@umich.mx</a><br/>
+        <a href="mailto:jose.alberto.guzman@umich.mx">jose.alberto.guzman@umich.mx</a><br/><sub>────────</sub><br/>
         <a href="https://orcid.org/0000-0002-9309-9390">ORCID</a>
       </td>
     </tr>
@@ -429,11 +429,11 @@ Parallel Efficiency: 85-90%   # Multi-core performance
         <sub>Engineering applications</sub>
       </td>
       <td>
-        <a href="http://www.siiia.com.mx">SIIIA MATH: Soluciones en ingeniería</a><br/>
+        <a href="http://www.siiia.com.mx">SIIIA MATH: Soluciones en ingeniería</a><br/><sub>────────</sub><br/>
         <a href="http://www.umich.mx">Universidad Michoacana de San Nicolás de Hidalgo</a>
       </td>
       <td>
-        <a href="mailto:heriberto.arias@umich.mx">heriberto.arias@umich.mx</a><br/>
+        <a href="mailto:heriberto.arias@umich.mx">heriberto.arias@umich.mx</a><br/><sub>────────</sub><br/>
         <a href="https://orcid.org/0000-0002-7641-8310">ORCID</a>
       </td>
     </tr>
